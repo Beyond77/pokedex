@@ -1,7 +1,7 @@
+import { ColorRing } from "react-loader-spinner";
 import { useCountdown } from "../hooks/useCountdown";
 import { usePokemon } from "../hooks/usePokemon";
-import { getRandomNumber } from "../utils/getRandomNumber";
-import { POKEMON_LIMIT, POKEMON_REMAINING_TIME, typeColor } from "../utils/pokemonType";
+import { POKEMON_REMAINING_TIME, typeColor } from "../utils/pokemonType";
 import { transformToUpperCamelCase } from "../utils/transformToUpperCamelCase";
 
 const PokedexPage = () => {
@@ -21,13 +21,22 @@ const PokedexPage = () => {
   return (
     <div
       className="pokedex-container center flex-column"
+      style={{
+        backgroundColor: `${typeColor(pokemon?.types[0].type.name)}`,
+      }}
     >
       {isLoading ? (
-        <p>Loading...</p>
+        <ColorRing
+        visible={isLoading}
+        height="160"
+        width="160"
+        ariaLabel="blocks-loading"
+        wrapperStyle={{}}
+        wrapperClass="blocks-wrapper"
+        colors={["#FFF", "#FFF", "#FFF", "#FFF", "#FFF"]}
+      />
       ) : (
-        <div className="pokedex-item center-column" style={{
-          backgroundColor: `${typeColor(pokemon?.types[0].type.name)}`,
-        }}>
+        <div className="pokedex-item center-column" >
           <img
             src="/images/pokemonLogo.svg"
             alt="pokemon-logo"
