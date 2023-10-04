@@ -29,7 +29,7 @@ const PokedexPage = () => {
           backgroundColor: `${typeColor(pokemon?.types[0].type.name)}`,
         }}>
           <img
-            src="/src/assets/pokemonLogo.svg"
+            src="/images/pokemonLogo.svg"
             alt="pokemon-logo"
             className="pokedex-logo"
           />
