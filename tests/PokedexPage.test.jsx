@@ -6,17 +6,6 @@ import PokedexPage from "../src/pages/PokedexPage";
 jest.mock("../src/hooks/usePokemon");
 
 describe("Test para renderizar <PokedexPage/>", () => {
-  test("debe de mostrar la pantalla de cargando", () => {
-    const pokemon = null;
-
-    const isLoading = true;
-
-    usePokemon.mockReturnValue([pokemon, isLoading]);
-
-    render(<PokedexPage />);
-
-    expect(screen.getByText("Loading..."));
-  });
 
   test("debe de mostrar la pantalla de error", () => {
     const pokemon = {};

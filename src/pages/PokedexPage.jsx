@@ -30,8 +30,6 @@ const PokedexPage = () => {
         visible={isLoading}
         height="160"
         width="160"
-        ariaLabel="blocks-loading"
-        wrapperStyle={{}}
         wrapperClass="blocks-wrapper"
         colors={["#FFF", "#FFF", "#FFF", "#FFF", "#FFF"]}
       />
