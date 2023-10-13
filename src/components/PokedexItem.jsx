@@ -1,6 +1,9 @@
+import { memo } from "react";
 import { transformToUpperCamelCase } from "../utils/transformToUpperCamelCase";
 
-const PokedexItem = ({ pokemon }) => {
+const PokedexItem = memo(({ pokemon }) => {
+
+  console.log("item");
 
   return (
     <>
@@ -35,6 +38,6 @@ const PokedexItem = ({ pokemon }) => {
       
     </>
   );
-};
+});
 
 export default PokedexItem;

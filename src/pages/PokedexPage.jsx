@@ -1,22 +1,12 @@
 import { ColorRing } from "react-loader-spinner";
-import { useCountdown } from "../hooks/useCountdown";
 import { usePokemon } from "../hooks/usePokemon";
-import { POKEMON_REMAINING_TIME, typeColor } from "../utils/pokemonType";
+import { typeColor } from "../utils/pokemonType";
 import PokedexContainer from "../components/PokedexContainer";
 
 const PokedexPage = () => {
 
-  const [pokemon, isLoading, error, getPokemonData] = usePokemon();
-  const [remainingTime, setRemainingTime] = useCountdown(
-    POKEMON_REMAINING_TIME,
-    getPokemonData
-  );
-
-  const handleNextPokemon = () => {
-    getPokemonData();
-    setRemainingTime(30);
-  };
-
+  const [ pokemon, isLoading, error, getPokemonData ] = usePokemon();
+ 
   if (error) {
     return <div>Something went wrong. Please try again...</div>;
   }
@@ -37,7 +27,7 @@ const PokedexPage = () => {
           colors={["#FFF", "#FFF", "#FFF", "#FFF", "#FFF"]}
         />
       ) : (
-        <PokedexContainer pokemon={pokemon} handleNextPokemon={handleNextPokemon} remainingTime={remainingTime} />
+        <PokedexContainer pokemon={pokemon} getPokemonData={getPokemonData}/>
       )}
     </div>
   );

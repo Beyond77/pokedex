@@ -5,7 +5,6 @@ export const useCountdown = ( time, onComplete ) => {
     const [remainingTime, setRemainingTime] = useState(time);
 
     useEffect(() => {
-
         let interval = setInterval(() => {
             setRemainingTime(prevTime => prevTime - 1);
         }, 1000)
@@ -13,7 +12,6 @@ export const useCountdown = ( time, onComplete ) => {
         return () => {
             clearInterval(interval)
         };
-        
     }, [])
 
     useEffect(() => {
@@ -24,5 +22,5 @@ export const useCountdown = ( time, onComplete ) => {
 
     }, [remainingTime])
 
-    return [remainingTime, setRemainingTime]
+    return [ remainingTime ]
 }
