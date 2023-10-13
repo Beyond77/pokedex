@@ -3,8 +3,6 @@ import { transformToUpperCamelCase } from "../utils/transformToUpperCamelCase";
 
 const PokedexItem = memo(({ pokemon }) => {
 
-  console.log("item");
-
   return (
     <>
       <img
